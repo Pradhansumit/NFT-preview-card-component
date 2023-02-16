@@ -1,0 +1,176 @@
+//colors
+
+//Primary
+
+$softblue: hsl(215, 51%, 70%);
+$cyan: hsl(178, 100%, 50%);
+
+//Neutral
+
+$darkblueM: hsl(217, 54%, 11%);
+$darkblueC: hsl(216, 50%, 16%);
+$darkblueL: hsl(215, 32%, 27%);
+$white: hsl(0, 0%, 100%);
+
+// typography
+$ffamily: "Outfit", sans-serif;
+$fsize: 18px;
+$flight: 300;
+$freg: 400;
+$fbold: 600;
+
+$transition: all 0.3s ease;
+
+//mixins
+
+@mixin Flex($jc) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: $jc;
+}
+
+@mixin Hover {
+  color: $cyan;
+  cursor: pointer;
+}
+
+// globals
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 100%;
+}
+body {
+  @include Flex(center);
+  background-color: $darkblueM;
+  min-height: 100vh;
+  font-family: $ffamily;
+}
+
+.container {
+  @include Flex(space-between);
+  background: $darkblueC;
+  max-width: 327px;
+  height: auto;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px hsl(217, 54%, 5%);
+
+  //image box
+  .img-box {
+    position: relative;
+    height: 285px;
+    width: 285px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &::after {
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+    &:hover {
+      cursor: pointer;
+      &::after {
+        content: url(../images/icon-view.svg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        background: hsla(178, 100%, 50%, 0.6);
+        left: 0%;
+        top: 0%;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+      }
+    }
+  }
+
+  //content container
+
+  .content-container {
+    h2 {
+      margin-bottom: 1rem;
+      transition: $transition;
+
+      &:hover {
+        @include Hover;
+      }
+    }
+    p {
+      color: $darkblueL;
+      font-size: $fsize;
+      margin-bottom: 1rem;
+    }
+
+    .num-container {
+      @include Flex(space-between);
+      flex-direction: row;
+      padding: 1rem;
+      border-bottom: 1px solid $softblue;
+
+      span {
+        @include Flex(center);
+        flex-direction: row;
+        gap: 0.5rem;
+
+        &:first-of-type {
+          font-weight: $fbold;
+          color: $cyan;
+        }
+        &:last-of-type {
+          color: $softblue;
+        }
+      }
+    }
+
+    .creator-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+
+      .avatar-box {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: solid 2px $white;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      p {
+        font-weight: $flight;
+        color: $white;
+        margin-bottom: 0;
+        transition: $transition;
+
+        span {
+          font-weight: $freg;
+          color: $softblue;
+        }
+
+        &:hover {
+          cursor: pointer;
+          color: $cyan;
+        }
+      }
+    }
+  }
+}

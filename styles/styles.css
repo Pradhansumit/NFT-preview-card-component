@@ -1,0 +1,138 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(217deg, 54%, 11%);
+  min-height: 100vh;
+  font-family: "Outfit", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: hsl(216deg, 50%, 16%);
+  max-width: 327px;
+  height: auto;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px hsl(217deg, 54%, 5%);
+}
+.container .img-box {
+  position: relative;
+  height: 285px;
+  width: 285px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+.container .img-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.container .img-box::after {
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+.container .img-box:hover {
+  cursor: pointer;
+}
+.container .img-box:hover::after {
+  content: url(../images/icon-view.svg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background: hsla(178deg, 100%, 50%, 0.6);
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+.container .content-container h2 {
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+.container .content-container h2:hover {
+  color: hsl(178deg, 100%, 50%);
+  cursor: pointer;
+}
+.container .content-container p {
+  color: hsl(215deg, 32%, 27%);
+  font-size: 18px;
+  margin-bottom: 1rem;
+}
+.container .content-container .num-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 1rem;
+  border-bottom: 1px solid hsl(215deg, 51%, 70%);
+}
+.container .content-container .num-container span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.container .content-container .num-container span:first-of-type {
+  font-weight: 600;
+  color: hsl(178deg, 100%, 50%);
+}
+.container .content-container .num-container span:last-of-type {
+  color: hsl(215deg, 51%, 70%);
+}
+.container .content-container .creator-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.container .content-container .creator-container .avatar-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: solid 2px hsl(0deg, 0%, 100%);
+}
+.container .content-container .creator-container .avatar-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.container .content-container .creator-container p {
+  font-weight: 300;
+  color: hsl(0deg, 0%, 100%);
+  margin-bottom: 0;
+  transition: all 0.3s ease;
+}
+.container .content-container .creator-container p span {
+  font-weight: 400;
+  color: hsl(215deg, 51%, 70%);
+}
+.container .content-container .creator-container p:hover {
+  cursor: pointer;
+  color: hsl(178deg, 100%, 50%);
+}/*# sourceMappingURL=styles.css.map */
